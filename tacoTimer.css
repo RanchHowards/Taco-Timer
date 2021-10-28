@@ -1,0 +1,278 @@
+:root{
+    --rose-madder: #df2935ff;
+    --dark-sea-green: #86ba90ff;
+    --pale-spring-bud: #f5f3bbff;
+    --tan-crayola: #dfa06eff;
+    --old-burgundy: #412722ff;
+    --taco-size: 200px;
+    --pan-size: 600;
+    --firstFlip: 3s;
+    --secondFlip: 10s;
+    --thirdFlip: 3s;
+    
+}
+* {
+    font-family: 'Syne Tactile', cursive;
+}
+/* must make sure HTML is covering page otherwise the gradient won't work */
+html {
+    height: 100%;
+}
+
+body {
+    
+    background: var(--pale-spring-bud);
+    
+}
+.filler{
+    visibility: hidden;
+    flex: 1 10 0;
+    max-width: 20%;
+}
+main {
+    display: flex; 
+    flex-flow: wrap row;
+    justify-content: space-between;
+}
+h1 {
+    color: var(--dark-sea-green);
+    text-align: center;
+    font-size: 5rem;
+    margin: 10px auto;
+    width: 100%;
+}
+
+
+#btn-section{
+    margin-top: 40px;
+    display: flex;
+    align-items: stretch;
+    flex-flow: wrap column;
+    max-width: 20%;
+    flex: auto;
+}
+/* > is the child selector, different than just adding a space between which is the descendent selector */
+#btn-section > *:not(label) { 
+    margin-bottom: 0 0 20px 0;
+    
+    padding: 0;
+    border: solid 5px var(--old-burgundy);
+    border-radius: 5px;
+    color: var(--old-burgundy);
+
+}
+#btn-section > div {
+    background-color: var(--dark-sea-green);
+    height: 70px;
+}
+
+#pan-section{
+  justify-content: center;
+display: flex;
+flex: none;
+margin-left: 20px; 
+}
+
+#frying-pan {
+    background-color: darkgray;
+    border: solid 5px gray;
+    height: 600px;
+    width: 600px;
+    border-radius: 50%;
+    top: 100px;
+   
+    /* position:   absolute; */
+}
+
+.taco {
+    border-radius: 50%;
+    position: absolute;
+    height: var(--taco-size);
+    width: var(--taco-size);
+    border-radius: 50%;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 1);
+    transform: scale(1);
+    font-size: 4em;;
+    color: var(--pale-spring-bud)
+    
+    /* text-align: center; */
+   
+    
+}
+.trans{
+    transition: background-color ease-out var(--firstFlip);
+}
+.cooking {
+    background-color: var(--rose-madder);
+}
+.trans2{
+    transition: background-color ease-out var(--secondFlip);
+}
+.cooking2 {
+    background-color: red;
+}
+.trans3{
+    transition: background-color ease-out var(--thirdFlip);
+}
+.cooking3 {
+    background-color: red;
+}
+.done{
+    background-color: red;
+animation: pulse-red 2s infinite;
+}
+@keyframes pulse-red {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+    }
+    
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 40px rgba(255, 0, 0, 0);
+    }
+    
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
+#undo {
+    text-decoration: none;
+    background-color: var(--dark-sea-green);
+    box-shadow: none;
+    color: var(--pale-spring-bud);
+    box-shadow: 0 4px 10px 0 var(--tan-crayola), 0 3px 10px 0 var(--old-burgundy);
+    transition: opacity .2s;
+    font-size: 2rem;
+    opacity: 1;
+    outline: none;
+    height: 80px;
+
+}
+#undo:hover {
+    opacity: .9;
+    transform: translate(1px, 2px);
+}
+
+#undo:active {
+    
+    transform: translate(2px, 3px);
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2), 0 2px 5px 0 rgba(0,0,0,0.19);
+}
+
+label {
+    display: block
+}
+input[type=number]{
+    background-color: var(--pale-spring-bud);
+    margin-top: 5px;
+    text-align: center;
+}
+
+#flip-settings {
+    font-size: 2em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--pale-spring-bud);   
+    background-color: var(--dark-sea-green);
+ }
+#flip-settings div{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+#size-label{
+    position: relative;
+    top:25px;
+    left: 6px;
+    color: var(--old-burgundy);
+    
+}
+
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    
+    background: darkgray; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 1; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    margin: 0 0 20px 0;
+   
+    
+}
+
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 40px; /* Set a specific slider handle width */
+    height: 70px; /* Slider handle height */
+    background: var(--dark-sea-green); 
+    border-left: 3px solid var(--old-burgundy);
+    border-right: 3px solid var(--old-burgundy);
+   
+    
+    cursor: pointer; /* Cursor on hover */
+  }
+
+  @media (max-width: 900px) { 
+    #btn-section{ 
+        flex-flow: row wrap;
+        flex: initial;
+        max-width: 100%;
+        justify-content: center;
+        margin-top: 0;
+    }
+    main{
+        display: flex;
+        flex-flow: column wrap;
+    }
+    #size-label{
+        left: 170px;
+        top: 5px;
+    }
+    .slider{
+        order: 2;
+    }
+    #undo{
+        margin: 0 34px 0 10px;
+    }
+    #pan-section{
+        margin-left: 0;
+    }
+ }
+
+
+
+/* @media (min-width: 768px) {
+    main{
+        
+        flex-flow: row wrap;
+    }
+.filler{
+  
+} 
+#btn-section{ 
+    flex-flow: column wrap;
+    max-width: 20%;
+}} */
+
+/*
+@media (min-width: 992px) { 
+ 
+ .filler{
+    display: block;
+}
+
+@media (min-width: 1200px) {  } */
