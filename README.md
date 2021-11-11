@@ -1,4 +1,4 @@
-# Taco-Timer
+# [Taco-Timer](https://github.com/RanchHowards/Taco-Timer)
 ### A visual timer to assist in your tortilla _(not tacos)_ making journey
 
 Built with jQuery and a dash of Vanilla JS.  
